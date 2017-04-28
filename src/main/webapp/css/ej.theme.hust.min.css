@@ -1,0 +1,91 @@
+
+.e-treeview, .e-dragedNode {
+	font-family: Segoe UI
+}
+.e-treeview .e-text {
+	background-color: transparent
+}
+.e-treeview .e-text {
+	color: #333
+}
+.e-dragedNode {
+	background: #65CEA7;
+	color: #fff
+}
+.e-dragedNode .e-text {
+	float: left
+}
+.e-dragedNode .e-text {
+	color: #fff
+}
+.e-treeview .e-active, .e-fullrow-wrap .e-li-active>.e-fullrow {
+	border: 1px solid transparent;
+	border-image: initial
+}
+.e-treeview .e-active, .e-fullrow-wrap .e-li-active>.e-fullrow {
+	color: #fff
+}
+.e-treeview .e-active, .e-fullrow-wrap .e-li-active>.e-fullrow {
+	background: #65CEA7;
+	background: -moz-linear-gradient(top, #65CEA7, #65CEA7);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #65CEA7), color-stop(100%, #65CEA7));
+	background: -webkit-linear-gradient(top, #65CEA7, #65CEA7);
+	background: -o-linear-gradient(top, #65CEA7, #65CEA7);
+	background: -ms-linear-gradient(top, #65CEA7, #65CEA7);
+	background: linear-gradient(to bottom, #65CEA7, #65CEA7);
+	border-radius: 4px;  
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#65CEA7', endColorstr='#65CEA7', GradientType=0)
+}
+.e-treeview .e-node-hover, .e-treeview .e-node-focus, .e-fullrow-wrap .e-li-hover>.e-fullrow, .e-fullrow-wrap .e-li-focus>.e-fullrow {
+	border-image: initial;
+	cursor: pointer
+}
+.e-treeview .e-node-hover, .e-treeview .e-node-focus, .e-fullrow-wrap .e-li-hover>.e-fullrow, .e-fullrow-wrap .e-li-focus>.e-fullrow {
+	color: #282827;
+	border: 1px solid #c8c8c8
+}
+.e-treeview .e-node-hover, .e-treeview .e-node-focus, .e-fullrow-wrap .e-li-hover>.e-fullrow, .e-fullrow-wrap .e-li-focus>.e-fullrow {
+	background: #f4f4f4;
+	background: -moz-linear-gradient(top, #f4f4f4, #f4f4f4);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f4f4), color-stop(100%, #f4f4f4));
+	background: -webkit-linear-gradient(top, #f4f4f4, #f4f4f4);
+	background: -o-linear-gradient(top, #f4f4f4, #f4f4f4);
+	background: -ms-linear-gradient(top, #f4f4f4, #f4f4f4);
+	background: linear-gradient(to bottom, #f4f4f4, #f4f4f4);
+	border-radius: 4px;  
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#f4f4f4', GradientType=0)
+}
+.e-treeview .e-sibling {
+	background: url(images/drop-sibling.png);
+	background-repeat: no-repeat
+}
+.e-treeview .e-node-disable {
+	filter: alpha(opacity=40);
+	opacity: .4
+}
+.e-treeview .e-icon.e-load, .e-treeview.e-rtl .e-icon.e-load {
+	background-image: url(images/ajax-loader.gif);
+	background-repeat: no-repeat
+}
+.e-treeview .e-icon.e-load, .e-treeview.e-rtl .e-icon.e-load {
+	background-position: right center
+}
+.e-treeview.e-rtl .e-icon.e-load {
+	background-position: left center
+}
+.e-treeview .e-item .e-icon {
+	color: #686969
+}
+.e-treeview .e-fe-popup .e-content {
+	background-color: #fff;
+	border-color: #c8c8c8
+}
+.e-treeview .e-fe-popup .e-downtail:after {
+	border-top-color: #fff
+}
+.e-treeview .e-fe-popup .e-downtail:before, .e-treeview .e-fe-popup .e-downtail {
+	border-top-color: #c8c8c8
+}
+.e-treeview .e-fe-popup .e-spanclicked {
+	border-color: #686969
+}

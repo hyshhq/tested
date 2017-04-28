@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Essential Studio for JavaScript : Gantt</title>
+    <link href="css/ej.web.all.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.11.3.min.js"></script>
+    <script src="Scripts/jsrender.min.js"></script>
+    <script src="Scripts/ej.web.all.min.js"></script>
+    <script src="Scripts/projectTrackerData.js"></script>
+
+    <style>
+        body, html {
+            
+            margin: 0px;
+            padding: 0px;
+            
+        }
+    </style>
+</head>
+<body style="overflow: scroll;">
+
+    <div id="gantt" style="overflow: hidden;"></div>
+    <button value="Export" id="export">Export</button>
+    <script type="text/javascript">
+
+        $(function () {
+            $("#gantt").ejGantt({
+                dataSource: projectData,
+                allowColumnResize: true,
+                enableResize: true,
+                taskIdMapping: "taskID",
+                taskNameMapping: "taskName",
+                startDateMapping: "startDate",
+                progressMapping: "progress",
+                durationMapping: "duration",
+                endDateMapping: "endDate",
+                childMapping: "subtasks",
+                enableVirtualization: true,
+                enablePredecessorValidation: true,
+                highlightWeekends: true,
+                includeWeekend: false,
+                scheduleStartDate: "02/01/2014",
+                scheduleEndDate: "04/09/2014",
+                //Resources mapping
+                resourceInfoMapping: "resourceId",
+                resourceNameMapping: "resourceName",
+                resourceIdMapping: "resourceId",
+                resources: projectResources,
+                predecessorMapping: "predecessor",
+                showResourceNames: true,
+                editSettings: {
+                    allowEditing: true,
+                    allowAdding: true,
+                    allowDeleting: true,
+                    editMode: "cellEditing",
+                    allowIndent: true
+                },
+                load: function (args) {                   
+                    var columns = this.getColumns();
+                    for (var i = 0; i < columns.length; i++) {
+                        if (columns[i].field == "taskName") {
+                            columns[i].width = 230;
+                        }
+                    }
+                },
+
+                sizeSettings: {
+                    width: "250%",
+                    height: "1300px"
+                },
+
+                showGridCellTooltip: true,
+                treeColumnIndex: 1,
+                allowDragAndDrop: true,
+                firstDayOfWeek: "0"
+
+            });
+            $("#export").click(function () {
+                var proxy = $("#gantt").ejGantt("instance"),
+                model = proxy.model,
+                ganttId = proxy._id,
+                exportUrl = "http://104.238.131.174:8098/api/GanttExport/PdfExport";
+            //   exportUrl = "http://localhost:8080/infrastructureHust/boq";
+                if (model.enableVirtualization) {
+                    var proxy_Model = $.extend({}, model);
+                    var proxy_Gantt = ej.buildTag("div#proxy_" + proxy._id, "", { "display": "none" }, {});
+                    $(document.body).append(proxy_Gantt);
+                    proxy_Model.enableVirtualization = false;
+                    proxy_Model.showColumnChooser = false;
+                    proxy_Model.toolbarSettings.showToolbar = false;
+                    proxy_Model.enableContextMenu = false;
+                    proxy_Model.enableResize = false;
+                    delete proxy_Model.updatedRecords;
+                    delete proxy_Model.flatRecords;
+                    delete proxy_Model.currentViewData;
+                    $("#proxy_" + proxy._id).ejGantt(proxy_Model);
+                    ganttId = "proxy_" + proxy._id;
+                }
+                var treeGrid = $("#" + ganttId).find(".e-treegridPane").clone(),
+                    ganttChart = $("#" + ganttId).find(".e-ganttchartPane").clone();
+                $(treeGrid).removeAttr("style");
+                $(treeGrid).css("display", "inline-block");
+                $(treeGrid).attr("id", "exportgrid");
+                $(treeGrid).find(".e-gridcontent").css({ "height": "auto", "width": "auto" });
+                $(treeGrid).find(".e-scrollbar").remove();
+                $(treeGrid).find(".ejTreeGrid").removeAttr("style");
+                $(treeGrid).find(".e-content").removeAttr("style");
+                $(document.body).append(treeGrid);
+                var treegridWidth = $("#exportgrid").width(),
+                    treegridHeight = $("#exportgrid").height(),
+                    lastColumnWidth = $(treeGrid).find(".e-gridheadercontainer th").last().outerWidth();
+                treegridWidth -= lastColumnWidth;
+
+                $(ganttChart).removeAttr("style");
+                $(ganttChart).css({ "display": "inline-block" });
+                $(ganttChart).attr("id", "exportchart");
+                $(ganttChart).find(".ejGanttChart").removeAttr("style");
+                $(ganttChart).find(".e-ganttviewercontainer").removeAttr("style");
+                $(ganttChart).find(".e-ganttviewerbodyContianer").css({ "height": "auto", "width": "auto" });
+                $(ganttChart).find(".e-scrollbar").remove();
+                $(ganttChart).find(".e-content").removeAttr("style").css("width", "100%");
+                $(ganttChart).find(".e-ganttviewerbodyContent").css({ "height": (treegridHeight - 45), "width": "auto" });
+                $(document.body).append(ganttChart);
+                var chartWidth = $(ganttChart).width();
+                var chartHeight = $(ganttChart).height();
+                var overallWidth = treegridWidth + chartWidth;
+                var overallHeight = treegridHeight;
+                $("#exportgrid").remove();
+                $("#exportchart").remove();
+                if (model.enableVirtualization) {
+                    $("#" + ganttId).remove();
+                }
+                $(treeGrid).css({ "float": "left", "width": treegridWidth });
+                $(ganttChart).css({ "float": "left" });
+                var HtmlString = "<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\"><head> <link href=\"ej.widgets.core.css\" rel=\"stylesheet\" /><link href=\"default-theme/ej.theme.css\" rel=\"stylesheet\" /></head><body>";
+                HtmlString += "<div style=\"display:flex;\">";
+                HtmlString += treeGrid[0].outerHTML;
+                HtmlString += ganttChart[0].outerHTML;
+                HtmlString += "</div>";
+                HtmlString += "</body></html>"
+                var attr = { "action": exportUrl, "method": 'post' };
+                $('form#' + proxy._id + 'export').remove();
+                var form = ej.buildTag('form#' + proxy._id + 'export', "", null, attr);
+                var heightAttr = { name: 'GanttHeight', type: 'hidden', value: overallHeight }
+                var inputHeight = ej.buildTag('input', "", null, heightAttr);
+                var widthAttr = { name: 'GanttWidth', type: 'hidden', value: overallWidth }
+                var inputWidth = ej.buildTag('input', "", null, widthAttr);
+                var textAtrr = "<textarea name='GanttDom' style='display:none'>" + HtmlString + "</textarea>";
+                form.append(inputHeight);
+                form.append(inputWidth);
+                form.append(textAtrr);
+                form.append(proxy);
+                $('body').append(form);
+                form.submit();
+            });
+        });
+    </script>
+
+</body>
+</html>
