@@ -64,6 +64,7 @@ public class ReportAnalyze {
 	@SuppressWarnings("unused")
 	private List<String> generateReport(){
 		System.out.println("tested");
+		System.out.println("tested2");
 		return null;
 	}
 
