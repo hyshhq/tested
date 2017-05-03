@@ -40,7 +40,7 @@ public class XMLHelper {
 
 	@Test
 	public void testParseXML() {
-		String url = TARGET_ZB;
+		String url = TARGET_TB;
 		try {
 			System.out.println("XML开始解析:" + url);
 			long e1 = System.currentTimeMillis();

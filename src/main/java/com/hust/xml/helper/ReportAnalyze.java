@@ -61,10 +61,11 @@ public class ReportAnalyze {
 		return jsonArr;
 	}
 	
-	@SuppressWarnings("unused")
-	private List<String> generateReport(){
-		System.out.println("tested");
-		System.out.println("tested2");
+	public String generateReport(Integer id, Integer pid){
+		
+		
+		
+		
 		return null;
 	}
 
