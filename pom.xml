@@ -6,11 +6,26 @@
   <packaging>war</packaging>
   
    	<properties>
-		<org.springframework.version>4.1.8.RELEASE</org.springframework.version>
+   	
+		<junit.version>4.11</junit.version>
+		<jstl.version>1.2</jstl.version>
+   	
+		<spring.version>4.3.5.RELEASE</spring.version>
+		
+		<dom4j.version>1.6.1</dom4j.version>
+		
+		<shiro.version>1.3.2</shiro.version>
+		<mybatis.version>3.4.1</mybatis.version>
+		<mybatis-spring.version>1.3.0</mybatis-spring.version>
 		<cxf.version>2.7.16</cxf.version>
-		<project.build.sourceEncoding>
-             UTF-8
-         </project.build.sourceEncoding>
+		<ojdbc.version>11.2.0</ojdbc.version>
+		<druid.version>1.0.27</druid.version>
+		<commons-codec.version>1.10</commons-codec.version>
+		<gson.version>2.8.0</gson.version>
+		<slf4j.version>1.7.21</slf4j.version>
+		
+		
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	
 	<build>
@@ -19,53 +34,69 @@
   
  <dependencies>
  
-	    <!-- log4j -->
-	    <dependency>
-	        <groupId>log4j</groupId>
-	        <artifactId>log4j</artifactId>
-	        <version>1.2.17</version>
-	    </dependency>
+		<!-- Junit -->
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>${junit.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>${jstl.version}</version>
+		</dependency>
  
- 		<!-- 包含spring-core, spring-expression, spring-aop, spring-beans -->
-	    <dependency>
-	        <groupId>org.springframework</groupId>
-	        <artifactId>spring-context</artifactId>
-	        <version>${org.springframework.version}</version>
-	    </dependency>
-	    
-	    <!-- 它提供了Hibernate和JPA支持,如 HibernateTemplate 和 JpaTemplate —— 以及持久性相关的一些依赖关系: spring-jdbc 和 spring-tx -->
-	    <dependency>
-	        <groupId>org.springframework</groupId>
-	        <artifactId>spring-orm</artifactId>
-	        <version>${org.springframework.version}</version>
-	    </dependency>
-	    
-	    <!-- 为Servlet环境提供了MVC支持 -->
-	    <dependency>
-	        <groupId>org.springframework</groupId>
-	        <artifactId>spring-web</artifactId>
-	        <version>${org.springframework.version}</version>
-	    </dependency>
-	    
-	    <dependency>
-	        <groupId>org.springframework</groupId>
-	        <artifactId>spring-webmvc</artifactId>
-	        <version>${org.springframework.version}</version>
-	    </dependency>
-	    
-	    <!-- spring websocket -->
-	    <dependency>
-	        <groupId>org.springframework</groupId>
-	        <artifactId>spring-websocket</artifactId>
-	        <version>${org.springframework.version}</version>
-	    </dependency>
-	    
-	    <!-- 从Spring 3.2开始,Spring MVC Test项目 作为一个独立的项目在github上提供下载 ,并且已被列入 core Test框架,只需要依赖 spring-test 就够了 -->
-	    <dependency>
-	        <groupId>org.springframework</groupId>
-	        <artifactId>spring-test</artifactId>
-	        <version>${org.springframework.version}</version>
-	    </dependency>
+ 		<!-- 5-Spring相关依赖 -->
+		<!-- 5-1-spring核心依赖 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- 5-2-spring dao层依赖 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- 5-3-springweb相关依赖 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- 5-4-spring单元测试相关依赖 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
  
 	  	<dependency>
 	    	<groupId>org.json</groupId>
@@ -116,25 +147,78 @@
 		    <version>2.2.2</version>  
 		</dependency>
 		
-		<dependency>
-		    <groupId>javax.servlet</groupId>
-		    <artifactId>jstl</artifactId>
-		    <version>1.2</version>
-		</dependency>
-		
 		<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
 		<dependency>
 		    <groupId>dom4j</groupId>
 		    <artifactId>dom4j</artifactId>
-		    <version>1.6.1</version>
+		    <version>${dom4j.version}</version>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<!--- 安全框架 -->
 		<dependency>
-		    <groupId>junit</groupId>
-		    <artifactId>junit</artifactId>
-		    <version>4.12</version>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${shiro.version}</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-web</artifactId>
+		    <version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+	    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-ehcache</artifactId>
+		    <version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-spring</artifactId>
+		    <version>${shiro.version}</version>
+		</dependency>
+		
+		<!-- mybatis相关依赖 -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis-spring.version}</version>
+		</dependency>
+		
+		<!-- 6-数据库相关依赖 -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>${ojdbc.version}</version>
+		</dependency>
+	    <dependency>
+	        <groupId>com.alibaba</groupId>
+	        <artifactId>druid</artifactId>
+	        <version>${druid.version}</version>
+	    </dependency>
+	    
+	    <!-- 编码相关 -->
+   		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>${commons-codec.version}</version>
+		</dependency>
+		<dependency>
+	    	<groupId>com.google.code.gson</groupId>
+	    	<artifactId>gson</artifactId>
+	    	<version>${gson.version}</version>
+		</dependency>
+		
+		
+	    <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+	
 		
 		</dependencies>
   
