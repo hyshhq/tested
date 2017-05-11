@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hust.infrastruct.mapper.user.UserMapper">
+	  <resultMap id="BaseResultMap" type="User">
+	  <id column="U_NAME" jdbcType="VARCHAR" property="userName" />
+	  <result column="U_ID" jdbcType="INTEGER" property="userId" />
+	  <result column="U_PASSWORD" jdbcType="VARCHAR" property="userPassword" />
+	  <result column="U_NICKNAME" jdbcType="VARCHAR" property="nickName" />
+	  <result column="U_SEX" jdbcType="INTEGER" property="userSex" />
+	  <result column="U_TEL" jdbcType="VARCHAR" property="userTel" />
+	  <result column="U_REMARK" jdbcType="VARCHAR" property="userRemark" />
+	  <result column="U_CREATE_DATE" jdbcType="DATE" property="userCreateDate" />
+	  <result column="U_LAST_LOGIN_DATE" jdbcType="DATE" property="userLastLoginDate" />
+	  <result column="U_PHONE" jdbcType="INTEGER" property="userPhone" />
+	  <result column="U_STATE" jdbcType="INTEGER" property="userState" />
+	</resultMap>
+	
+  	<sql id="Base_Column_List">
+	     U_ID, U_NAME, U_PASSWORD, U_NICKNAME, U_SEX, U_TEL, U_REMARK, U_CREATE_DATE,
+	    U_LAST_LOGIN_DATE, U_PHONE, U_STATE
+  	</sql>
+	
+  	<!-- login -->
+  	<select id="loginByNamePassword" parameterType="String" resultMap="BaseResultMap" >
+  		SELECT 
+    <include refid="Base_Column_List" />
+	    FROM u_user
+	    WHERE u_name = #{userName} and u_password = #{userPassword}
+  	</select> 
+  
+  	<!-- checking for the existence of username --> 
+  	<select id="findUsernameByUsername" parameterType="String" resultType="String">
+	  	SELECT U_NAME
+	  	FROM u_user
+	  	WHERE u_name = #{userName}
+  	</select>
+  
+  	<select id="addUser" parameterType="String">
+  	
+  	</select>
+  
+  
+</mapper>
