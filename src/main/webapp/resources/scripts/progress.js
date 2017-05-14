@@ -1,41 +1,4 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Essential Studio for JavaScript : Gantt</title>
-    <link href="css/ej.widgets.core.min.css" rel="stylesheet" />
-    <link href="css/ej.theme.min.css" rel="stylesheet" />
-
-    <!--[if lt IE 9]>
-    <script src="../../scripts/jquery-1.11.3.min.js"></script> 
-    <![endif]-->
-    <!--[if IE 9]><!-->
-    <script src="Scripts/jquery-3.1.1.min.js"> </script>
-    <!--<![endif]-->
-
-    <script src="Scripts/jsrender.min.js"></script>
-    <script src="Scripts/ej.web.all.min.js"></script>
-
-    <!--中文支持-->
-    <script src="Scripts/i18n/ej.culture.zh-CN.min.js"></script>
-    <script src="Scripts/i18n/ej.localetexts.zh-CN.min.js"></script>
-
-    <style>
-        body, html {
-            margin: 0px;
-            padding: 0px;
-            
-        }
-
-    </style>
-</head>
-<body>
-
-    <div id="gantt" ></div>
-    <button value="updateGanttSize" id="updateGanttSize" onclick="updateGanttSize();">updateGanttSize</button>
-    <!--<button value="Export" id="export">Export</button> -->
-    <script type="text/javascript">
-    
-    var projectData = [
+ var projectData = [
         {
             taskID:1,
             taskName: 'XXXXX项目',
@@ -175,10 +138,6 @@
 
                 },
 
-                sizeSettings: {
-                    width: "100%",
-                    height: "700px"
-                },
 
                 showGridCellTooltip: true,
                 treeColumnIndex: 1,
@@ -202,7 +161,7 @@
                 }
             });
 
-
+            updateGanttSize();
         });
 
             function updateGanttSize() {
@@ -216,15 +175,10 @@
 
                 totalLen = treeObj.getExpandedRecords(model.updatedRecords);
                 //To calculate the height of Gantt as per records count
-                var height = model.rowHeight * (totalLen.length+1) + treeObj.getHeaderContent().height() + toolbarHeight,           
+                var height = model.rowHeight * (totalLen.length+1) + treeObj.getHeaderContent().height() + toolbarHeight-17,           
                     width = treeWidth + chartWidth + 9;
                 //Resizing Gantt and update splitter bar position
                 var sizesettings = { height: height.toString(), width: width.toString() },
                     splitterSettings = { position: treeWidth.toString() };
                 ganttObj.setModel({ "sizeSettings": sizesettings, "splitterSettings":splitterSettings });
             }
-
-    </script>
-
-</body>
-</html>

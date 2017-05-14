@@ -17,14 +17,14 @@
 
 <section>
     <!-- left side start-->
-    <%@ include file="./common/left.jsp" %>
+    <%@ include file="../common/left.jsp" %>
     <!-- left side end-->
     
     <!-- main content start-->
-    <div class="main-content" style="min-height: 100%">
+    <div class="main-content" style="height: 100%">
 
         <!-- header section start-->
-        <%@ include file="./common/top.jsp" %>
+        <%@ include file="../common/top.jsp" %>
         <!-- header section end-->
 
         <!-- page heading start-->
@@ -129,7 +129,7 @@
         <!--body wrapper end-->
 
         <!--footer section start-->
-        <%@ include file="./common/footer.jsp" %>
+        <%@ include file="../common/footer.jsp" %>
         <!--footer section end-->
 
 

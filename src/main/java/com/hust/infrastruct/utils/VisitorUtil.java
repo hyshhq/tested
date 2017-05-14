@@ -29,13 +29,12 @@ public class VisitorUtil {
 	/**
 	 * 
 	 * @Title: getSaveURL
-	 * @Description: 获取登录之前的URL,如果没有返回 /login
+	 * @Description: 获取登录之前的URL,如果没有返回 /project
 	 * @param request
 	 * @return: String(URL)
 	 */
 	public static String getSaveURL(HttpServletRequest request) {
 		SavedRequest savedRequest = WebUtils.getSavedRequest(request);
-
 		return savedRequest == null ? request.getContextPath() + "/project" : savedRequest.getRequestUrl();
 
 	}

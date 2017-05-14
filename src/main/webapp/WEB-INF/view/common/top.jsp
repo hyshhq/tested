@@ -27,7 +27,7 @@
                             <ul class="dropdown-list normal-list">
                                 <li class="new">
                                     <a href="progresstableapp.jsp">
-                                        <span class="thumb"><img src="${path}resources/static/images/topbar/greenlight.png" alt="" /></span>
+                                        <span class="thumb"><img src="${path}/resources/static/images/topbar/greenlight.png" alt="" /></span>
                                         <span class="desc">
                                           <span class="name">基本建设及修缮管理信息系统1<span class="badge badge-success">new</span></span>
                                           <span class="msg">工程进度审核表审核</span>
@@ -36,7 +36,7 @@
                                 </li>
                                 <li>
                                     <a href="paytableapp.jsp">
-                                        <span class="thumb"><img src="${path}resources/static/images/topbar/greenlight.png" alt="" /></span>
+                                        <span class="thumb"><img src="${path}/resources/static/images/topbar/greenlight.png" alt="" /></span>
                                         <span class="desc">
                                           <span class="name">基本建设及修缮管理信息系统2</span>
                                           <span class="msg">工程款支付报审表审核</span>
@@ -45,7 +45,7 @@
                                 </li>
                                 <li>
                                     <a href="progresstableapp.jsp">
-                                        <span class="thumb"><img src="${path}resources/static/images/topbar/redlight.png" alt="" /></span>
+                                        <span class="thumb"><img src="${path}/resources/static/images/topbar/redlight.png" alt="" /></span>
                                         <span class="desc">
                                           <span class="name">基本建设及修缮管理信息系统3</span>
                                           <span class="msg">工程进度审核表审核</span>
@@ -54,7 +54,7 @@
                                 </li>
                                 <li>
                                     <a href="paytableapp.jsp">
-                                        <span class="thumb"><img src="${path}resources/static/images/topbar/redlight.png" alt="" /></span>
+                                        <span class="thumb"><img src="${path}/resources/static/images/topbar/redlight.png" alt="" /></span>
                                         <span class="desc">
                                           <span class="name">基本建设及修缮管理信息系统4</span>
                                           <span class="msg">工程款支付报审表审核</span>
@@ -63,7 +63,7 @@
                                 </li>
                                 <li>
                                     <a href="paytableapp.jsp">
-                                        <span class="thumb"><img src="${path}resources/static/images/topbar/redlight.png" alt="" /></span>
+                                        <span class="thumb"><img src="${path}/resources/static/images/topbar/redlight.png" alt="" /></span>
                                         <span class="desc">
                                           <span class="name">基本建设及修缮管理信息系统5</span>
                                           <span class="msg">工程款支付报审表审核</span>
@@ -77,14 +77,14 @@
                     	
                     <li>
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            <img src="${path}resources/static/images/topbar/user2.png" alt="" />
+                            <img src="${path}/resources/static/images/topbar/user2.png" alt="" />
                                                                                                    陈倩
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
 <!--                             <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li> -->
-                            <li><a href="password.jsp"><i class="fa fa-cog"></i>修改密码</a></li>
-                            <li><a href="login.jsp"><i class="fa fa-sign-out"></i>登出</a></li>
+                            <li><a href="${path}/admin/password"><i class="fa fa-cog"></i>修改密码</a></li>
+                            <li><a href="${path}/admin/logout"><i class="fa fa-sign-out"></i>登出</a></li>
                         </ul>
                     </li>
 

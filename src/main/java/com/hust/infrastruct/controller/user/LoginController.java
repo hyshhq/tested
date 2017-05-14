@@ -41,6 +41,34 @@ public class LoginController extends BaseController {
 		return "project";
 	}
 	
+	@RequestMapping(value = "/contract")
+	public String goContract() {
+		log.info("\n\n /index ==> 跳转到contract \n");
+		
+		return "contract/contract";
+	}
+	
+	@RequestMapping(value = "/doc")
+	public String goDoc() {
+		log.info("\n\n /index ==> 跳转到doc \n");
+		
+		return "doc/doc";
+	}
+	
+	@RequestMapping(value = "/progress")
+	public String goProgress() {
+		log.info("\n\n /index ==> 跳转到progress \n");
+		
+		return "flow/progress";
+	}
+	
+	@RequestMapping(value = "/weekReport")
+	public String goWeekReport() {
+		log.info("\n\n /index ==> 跳转到weekReport \n");
+		
+		return "flow/weekReport";
+	}
+	
 	@RequestMapping(value = "/user")
 	public String goUser() {
 		log.info("\n\n /index ==> 跳转到user \n");
@@ -53,6 +81,13 @@ public class LoginController extends BaseController {
 		log.info("\n\n /login ==> GET 请求登录 \n");
 
 		return "admin/login";
+	}
+	
+	@RequestMapping("/password")
+	public String passwordGet() {
+		log.info("\n\n /login ==> GET 请求登录 \n");
+
+		return "admin/password";
 	}
 
 	/**

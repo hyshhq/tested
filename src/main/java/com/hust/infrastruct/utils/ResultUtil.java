@@ -123,6 +123,7 @@ public class ResultUtil
     {
         resultMap.clear();
         resultMap.put("state", AccountStaEnum.success.getState());
+        
         resultMap.put("url", VisitorUtil.getSaveURL(request));
         return toJson(resultMap);
     }
