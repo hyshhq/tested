@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="java.util.Date" %>
  <%@ include file="/WEB-INF/view/common/global.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
-		<%@ include file="/WEB-INF/view/common/metaInfo.jsp"%>
+	<%@ include file="/WEB-INF/view/common/metaInfo.jsp"%>
 
-  <!--dynamic table-->
-  	<link href="${path}/resources/scripts/advanced-datatable/css/demo_page.css" rel="stylesheet" />
-  	<link href="${path}/resources/scripts/advanced-datatable/css/demo_table.css" rel="stylesheet" />
-  	<link href="${path}/resources/scripts/data-tables/DT_bootstrap.css" rel="stylesheet"/>
-
+ 	<link rel="stylesheet" type="text/css" href="${path}/resources/static/css/library/bootstrap/datepicker-custom.css" />
+  	<link rel="stylesheet" type="text/css" href="${path}/resources/static/css/library/bootstrap/daterangepicker-bs3.css" />
+  	
+  	
+  	
 </head>
 
 <body class="sticky-header">
@@ -21,7 +22,7 @@
     <!-- left side end-->
     
     <!-- main content start-->
-    <div class="main-content" style="height: 100%">
+    <div class="main-content" style="overflow: auto;min-height: 100%">
 
         <!-- header section start-->
         <%@ include file="../common/top.jsp" %>
@@ -30,13 +31,13 @@
         <!-- page heading start-->
         <div class="page-heading">
             <h3>
-                         项目总览
+               	流程管理
             </h3>
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">项目总览</a>
+                    <a href="#">进度管理</a>
                 </li>
-                <li class="active">项目概况</li>
+                <li class="active">进度报告</li>
             </ul>            
         </div>
         <!-- page heading end-->
@@ -44,84 +45,383 @@
         <!--body wrapper start-->
         <div class="wrapper">
 	        <div class="row">
-		        <div class="col-sm-12">
-			        <section class="panel">
+		        <div class="col-sm-12" style="float:left">
+			        <section class="panel" style="float:left;min-width: 100%">
+				        
 				        <header class="panel-heading">
-				            基本建设及修缮项目总览
-				            <span class="tools pull-right">
+			           		<span>进度报告</span>
+				            	<span class="tools pull-right">
 				                <a href="javascript:;" class="fa fa-chevron-down"></a>
 				                <a href="javascript:;" class="fa fa-times"></a>
-				                &nbsp;<button class="btn btn-primary" type="submit" onclick="window.location.href='newproject.jsp'">新建项目</button>
 				             </span>
 				        </header>
 				        <div class="panel-body">
-					        <div class="adv-table">
-						        <table  class="display table table-bordered table-striped" id="dynamic-table">						
-							        <thead>
-								        <tr>
-								            <th>序号</th>
-								            <th>项目编号</th>
-								            <th>项目名称</th>
-								            <th>项目阶段</th>
-								            <th>待办事项</th>
-								            <th>项目流程总览</th>
-								        </tr>
-							        </thead>
-							        <tbody>
-								        <tr class="gradeA">
-								            <td>1</td>
-								            <td>2016101001</td>
-								            <td>基本建设及修缮管理信息系统1</td>
-								            <td>投资控制及资金管理</td>
-								            <td>工程进度审核表审核</td>
-								            <td class="center"><a href="projectview2.jsp">查看</a></td>
-								        </tr>
-								        <tr class="gradeC">
-								            <td>2</td>
-								            <td>2016102001</td>
-								            <td>基本建设及修缮管理信息系统2</td>
-								            <td>投资控制及资金管理</td>
-								            <td>工程款支付报审表审核</td>								            
-								            <td class="center"><a href="projectview2.jsp">查看</a></td>
-								        </tr>
-								        <tr class="gradeA">
-								            <td>3</td>
-								            <td>2016103001</td>
-								            <td>基本建设及修缮管理信息系统3</td>
-								            <td>投资控制及资金管理</td>
-								            <td>工程进度审核表审核</td>								            
-								            <td class="center"><a href="projectview2.jsp">查看</a></td>
-								        </tr>
-								        <tr class="gradeC">
-								            <td>4</td>
-								            <td>2016104001</td>
-								            <td>基本建设及修缮管理信息系统4</td>
-								            <td>投资控制及资金管理</td>
-								            <td>工程款支付报审表审核</td>								            
-								            <td class="center"><a href="projectview2.jsp">查看</a></td>
-								        </tr>
-								        <tr class="gradeA">
-								            <td>5</td>
-								            <td>2016105001</td>
-								            <td>基本建设及修缮管理信息系统5</td>
-								            <td>投资控制及资金管理</td>
-								            <td>工程款支付报审表审核</td>								            
-								            <td class="center"><a href="projectview2.jsp">查看</a></td>
-								        </tr>
-								        <tr class="gradeC">
-								            <td>6</td>
-								            <td>2016106001</td>
-								            <td>基本建设及修缮管理信息系统6</td>
-								            <td>已完结</td>
-								            <td>无</td>								            
-								            <td class="center"><a href="projectview2.jsp">查看</a></td>
-								        </tr>						        
-							        </tbody>
-						        </table>
-					
-					        </div>
+					       	<div class="form-group">
+					       			<label class="control-label" style="float: left;margin-top: 5px">请选择报告类型</label>
+					       			
+					       			<div class="radio" style="float: left;margin-top: 5px;margin-left: 20px">
+		                                <label>
+		                                    <input type="radio" name="reportRadios" id="weekRadio" value="week" checked>
+		                                    	周报
+		                                </label>
+		                            </div>
+		                            <div class="radio" style="float: left;margin-top: 5px;margin-left: 20px">
+		                                <label>
+		                                    <input type="radio" name="reportRadios" id="monthRadio" value="month">
+		                                    	月报
+		                                </label>
+		                            </div>
+					       			
+                                    <label class="control-label " style="float:left; margin-top: 5px;padding-left: 30px">请选择日期范围</label>
+                                    <div class="col-md-5">
+                                        <div class="input-group input-large custom-date-range" data-date="13/07/2013" data-date-format="mm/dd/yyyy">
+                                            <input type="text" class="form-control dpd1" name="from">
+                                            <span class="input-group-addon">至</span>
+                                            <input type="text" class="form-control dpd2" name="to">
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <div>
+        								<h3 align="center" title="暂定周报，后面根据前面选择的Raido 自动切换 周/月报 暂缺 月报模板">工作周/月计划</h3>
+        								<div class="col-lg-12">
+	        								<label style="float: left;margin-top: 10px" title="根据登陆用户权限过滤列表">工程名称</label>
+	        								<select class="form-control m-bot15" style="width: 60%;float: left;margin-left: 10px">
+				                                <option>华中科技大学广电信息大楼</option>
+				                                <option>华中科技大学XXXXXXXXXXX</option>
+				                                <option>华中科技大学XXXXXXXXXXX</option>
+				                                <option>华中科技大学XXXXXXXXXXX</option>
+				                                <option>华中科技大学XXXXXXXXXXX</option>
+				                                <option>华中科技大学XXXXXXXXXXX</option>
+				                                <option>华中科技大学XXXXXXXXXXX</option>
+				                            </select>
+        								</div>
+        								<div class="col-lg-12">
+        									<label title="是否需要DatePicker，还是自动选择当前时间，还是用户填写">日期: 2017年5月15日</label>
+        								</div>
+        								
+        								<div>
+        								<table border="1" class="col-lg-12">
+        									<thead style="text-align: center;">
+        										<tr>
+        											<td rowspan="4">
+        												序号
+        											</td>
+        											<td rowspan="4">
+        												主要工作内容
+        											</td>
+        											<td colspan="7">日期</td>
+        											<td rowspan="4" title="工程量是否需要单独作为一列" style="width: 200">备注(工程量)</td>
+        										</tr>
+        										<tr>
+        											<td style="width: 50">11.28</td>
+        											<td style="width: 50">11.29</td>
+        											<td style="width: 50">11.30</td>
+        											<td style="width: 50">12.1</td>
+        											<td style="width: 50">12.2</td>
+        											<td style="width: 50">12.3</td>
+        											<td style="width: 50">12.4</td>
+        										</tr>
+        										<tr>
+        											<td>周一</td>
+        											<td>周二</td>
+        											<td>周三</td>
+        											<td>周四</td>
+        											<td>周五</td>
+        											<td>周六</td>
+        											<td>周日</td>
+        										</tr>
+        										<tr>
+        											<td>多云</td>
+        											<td>小雨</td>
+        											<td>多云</td>
+        											<td>多云</td>
+        											<td>多云</td>
+        											<td>晴</td>
+        											<td>晴</td>
+        										</tr>
+        									</thead>
+        									<tbody>
+        										<tr>
+        											<td colspan="2" style="background-color: #eeeeee" title="暂定,后期需改成动态添加行">结构施工(示例)</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        										</tr>
+        										<c:forEach begin = '0' end = '10' >
+        										<tr>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        										</tr>
+        										</c:forEach>
+        										
+        										<tr>
+        											<td colspan="2" style="background-color: #eeeeee">XX施工(示例)</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        										</tr>
+        										<c:forEach begin = '0' end = '10' >
+        										<tr>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        										</tr>
+        										</c:forEach>
+        									</tbody>
+        								</table>
+        								<table border="1" class="col-lg-12">
+        									<tr><td colspan="10">&nbsp;</td></tr>
+	      										<tr style="text-align: center;">
+	      											<td rowspan="10" style="width: 80">主要工种</td>
+	      											<td style="width: 60">工种</td>
+	      											<td style="width: 60">人数</td>
+	      											<td style="width: 300">工作内容</td>
+	      											<td rowspan="10" style="width: 80">主要机械设备</td>
+	      											<td >设备名称</td>
+	      											<td style="width: 60">数量</td>
+	      											<td style="width: 300">用途</td>
+	      										</tr>
+      										<c:forEach begin = '0' end = '8' >
+      											<tr>
+	       											<td >&nbsp;</td>
+	       											<td >&nbsp;</td>
+	       											<td >&nbsp;</td>
+	       											<td >&nbsp;</td>
+	       											<td >&nbsp;</td>
+	       											<td >&nbsp;</td>
+      											</tr>
+      										</c:forEach>
+        								</table>
+        								<table border="1" class="col-lg-12">
+        									<thead style="text-align: center;">
+        										<tr>
+        											<td>
+        												上周计划情况和完成情况
+        											</td>
+       											</tr>
+        									</thead>
+        								</table>
+        								<table border="1" class="col-lg-12">
+        									<thead style="text-align: center;">
+        										<tr>
+        											<td rowspan="4">
+        												序号
+        											</td>
+        											<td rowspan="4">
+        												主要工作内容
+        											</td>
+        											<td colspan="7">日期</td>
+        											<td rowspan="4" style="width: 150">计划完成</td>
+        											<td rowspan="4" style="width: 150">实际完成</td>
+        										</tr>
+        										<tr>
+        											<td style="width: 50">11.21</td>
+        											<td style="width: 50">11.22</td>
+        											<td style="width: 50">11.23</td>
+        											<td style="width: 50">11.24</td>
+        											<td style="width: 50">11.25</td>
+        											<td style="width: 50">11.26</td>
+        											<td style="width: 50">11.27</td>
+        										</tr>
+        										<tr>
+        											<td>周一</td>
+        											<td>周二</td>
+        											<td>周三</td>
+        											<td>周四</td>
+        											<td>周五</td>
+        											<td>周六</td>
+        											<td>周日</td>
+        										</tr>
+        										<tr>
+        											<td>多云</td>
+        											<td>小雨</td>
+        											<td>多云</td>
+        											<td>多云</td>
+        											<td>多云</td>
+        											<td>晴</td>
+        											<td>晴</td>
+        										</tr>
+        									</thead>
+        									<tbody>
+        										<tr>
+        											<td colspan="2" style="background-color: #eeeeee">XXXX</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        										</tr>
+        										<c:forEach begin = '0' end = '10' >
+        										<tr>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        										</tr>
+        										</c:forEach>
+        										
+        										<tr>
+        											<td colspan="2" style="background-color: #eeeeee">XXXX</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        										</tr>
+        										<c:forEach begin = '0' end = '10' >
+        										<tr>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        											<td>&nbsp;</td>
+        										</tr>
+        										</c:forEach>
+        									</tbody>
+        									<tfoot>
+        										<tr>
+        											<td colspan="11" style="text-align: left;background-color: #eeeeee">差距分析</td>
+        										</tr>
+        										<tr>
+        											<td colspan="11" style="text-align: left;">
+        												<textarea rows="3" cols="10" style="width: 100%">&nbsp;</textarea>
+        											</td>
+        										</tr>
+        										<tr>
+        											<td colspan="11" style="text-align: left;background-color: #eeeeee">确保进度措施</td>
+        										</tr>
+        										<tr>
+        											<td colspan="11" style="text-align: left;">
+        												<textarea rows="2" cols="10" style="width: 100%">&nbsp;</textarea>
+        											</td>
+        										</tr>
+        									</tfoot>
+        								</table>
+        								</div>
+        								<div>
+        									<label  style="margin-top: 10px">计划负责人</label><input type="text">
+        									<label  style="margin-top: 10px">编制人</label><input type="text">
+        								</div>
+        								
+        								<div>
+        									<label for="exampleInputFile" style="margin-top: 5px;" title="暂用,需改为多文件上传">附件图片</label>
+			                                <input type="file" id="exampleInputFile" style="">
+			                                <p class="help-block">上传错误提示信息</p>
+        								</div>
+        								
+      								</div>
+                           	</div>
 				        </div>
+				        
 			        </section>
+			        
+			         <section class="panel" style="float:left;min-width: 100%">
+			         	<header class="panel-heading">
+			           		<span>进度汇总</span>
+				            	<span class="tools pull-right">
+				                <a href="javascript:;" class="fa fa-chevron-down"></a>
+				                <a href="javascript:;" class="fa fa-times"></a>
+				             </span>
+				        </header>
+				        <div class="panel-body">
+				        	<table class="display table table-bordered table-striped">
+				                <tr class="gradeA">
+				                    <th colspan="6">年份</th>
+				                </tr>
+				                <tr class="gradeC">
+				                    <td><a href="#">2015</a></td>
+				                    <td><a href="#">2016</a></td>
+				                    <td><a href="#">2017</a></td>
+				                </tr>
+				                <tr class="gradeA">
+				                    <th colspan="6">月份</th>
+				                </tr>
+				                <tr class="gradeC">
+				                    <td><a href="#">1月</a></td>
+				                    <td><a href="#">2月</a></td>
+				                    <td><a href="#">3月</a></td>
+				                    <td><a href="#">4月</a></td>
+				                    <td><a href="#">5月</a></td>
+				                    <td><a href="#">6月</a></td>
+				                </tr>
+				                <tr>
+				                	<td><a href="#">7月</a></td>
+				                    <td><a href="#">8月</a></td>
+				                    <td><a href="#">9月</a></td>
+				                    <td><a href="#">10月</a></td>
+				                    <td><a href="#">11月</a></td>
+				                    <td><a href="#">12月</a></td>
+				                </tr>
+				                <tr class="gradeA">
+				                    <th colspan="6">周数</th>
+				                </tr>
+				                <tr class="gradeC">
+				                	<td><a href="#">第一周</a></td>
+				                    <td><a href="#">第二周</a></td>
+				                    <td><a href="#">第三周</a></td>
+				                    <td><a href="#">第四周</a></td>
+				                    <td><a href="#">第五周(..)</a></td>
+				                </tr>
+			                </table>
+			                
+			               	<table class="col-lg-12" style="background-color: #f2f2f2;text-align: center;min-height: 500px">
+			               		<tr>
+			               			<td>
+			               				具体报告占位
+			               			</td>
+			               		</tr>
+			               	
+			               	</table>
+			                
+				        </div>
+			         </section>
+			        
 		        </div>
 	        </div>
         </div>
@@ -129,7 +429,7 @@
         <!--body wrapper end-->
 
         <!--footer section start-->
-        <%@ include file="../common/footer.jsp" %>
+<%--         <%@ include file="../common/footer.jsp" %> --%>
         <!--footer section end-->
 
 
@@ -144,15 +444,16 @@
 <!-- Placed js at the end of the document so the pages load faster -->
 
 <!--dynamic table-->
-<script type="text/javascript" src="${path }/resources/scripts/advanced-datatable/js/jquery.dataTables.js"></script>
-<script type="text/javascript" src="${path }/resources/scripts/data-tables/DT_bootstrap.js"></script>
-<!--dynamic table initialization -->
-<!-- <script src="${path }resources/scripts/library/dynamic_table_init.js"></script> -->
 		
 <!-- 页面初始化就需要加载 -->		
-<script src="${path }/resources/scripts/scripts.js"></script>
-
-
+	<script src="${path }/resources/scripts/scripts.js"></script>
+	
+	<script src="${path}/resources/scripts/library/bootstrap-datepicker.js"></script>
+    <script src="${path}/resources/scripts/library/moment.min.js"></script>
+    <script src="${path}/resources/scripts/library/daterangepicker.js"></script>
+    
+    <script src="${path}/resources/scripts/library/pickers-init.js"></script>
+	
 </body>
 </html>
     

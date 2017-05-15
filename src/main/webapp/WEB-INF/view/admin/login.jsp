@@ -6,7 +6,7 @@
 <head>
 	
 	<%@ include file="/WEB-INF/view/common/metaInfo.jsp"%>
-    
+	
 </head>
 
 <body class="login-body">

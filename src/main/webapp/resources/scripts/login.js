@@ -1,4 +1,4 @@
-$(function(){
+window.onload = function(){
 	
 	var login = {
 		
@@ -125,4 +125,4 @@ $(function(){
 		}
 	});
 	
-});
+}

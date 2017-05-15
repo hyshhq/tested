@@ -9,6 +9,7 @@
   	<link href="${path}/resources/static/css/library/ej/ej.widgets.core.min.css" rel="stylesheet">
   	<link href="${path}/resources/static/css/library/ej/ej.theme.hust.min.css" rel="stylesheet">
   	
+  	
 </head>
 
 <body class="sticky-header">
@@ -54,9 +55,9 @@
 				        <div class="panel-body">
 					       <div id="gantt" ></div>
 			    			<button value="updateGanttSize" id="updateGanttSize" onclick="updateGanttSize();" style="display: none">updateGanttSize</button>
-			    			<!--<button value="Export" id="export">Export</button> -->
 				        </div>
-			        </section>
+				        </section>
+s				        
 		        </div>
 	        </div>
         </div>
@@ -81,13 +82,16 @@
 <!--dynamic table-->
 		
 <!-- 页面初始化就需要加载 -->		
-	<script src="${path }/resources/scripts/scripts.js"></script>
+	<script src="${path}/resources/scripts/scripts.js"></script>
   	<script src="${path}/resources/scripts/library/jsrender.min.js"></script>
 	<script src="${path}/resources/scripts/ej/ej.web.all.min.js"></script>
     <script src="${path}/resources/scripts/ej/ej.culture.zh-CN.min.js"></script>
     <script src="${path}/resources/scripts/ej/ej.localetexts.zh-CN.min.js"></script>
     
     <script src="${path }/resources/scripts/progress.js"></script>
+    
+    
+    
 </body>
 </html>
     

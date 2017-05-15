@@ -1,7 +1,5 @@
 package com.hust.xml.helper;
 
-import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Test;
