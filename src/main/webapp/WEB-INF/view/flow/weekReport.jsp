@@ -7,10 +7,8 @@
 <head>
 	<%@ include file="/WEB-INF/view/common/metaInfo.jsp"%>
 
- 	<link rel="stylesheet" type="text/css" href="${path}/resources/static/css/library/bootstrap/datepicker-custom.css" />
-  	<link rel="stylesheet" type="text/css" href="${path}/resources/static/css/library/bootstrap/daterangepicker-bs3.css" />
-  	
-  	
+  	<link href="${path}/resources/static/css/library/ej/ej.widgets.core.min.css" rel="stylesheet">
+  	<link href="${path}/resources/static/css/library/ej/ej.theme.hust.min.css" rel="stylesheet">
   	
 </head>
 
@@ -74,11 +72,12 @@
 					       			
                                     <label class="control-label " style="float:left; margin-top: 5px;padding-left: 30px">请选择日期范围</label>
                                     <div class="col-md-5">
-                                        <div class="input-group input-large custom-date-range" data-date="13/07/2013" data-date-format="mm/dd/yyyy">
-                                            <input type="text" class="form-control dpd1" name="from">
-                                            <span class="input-group-addon">至</span>
-                                            <input type="text" class="form-control dpd2" name="to">
-                                        </div>
+<!--                                         <div class="input-group input-large custom-date-range" data-date="13/07/2013" data-date-format="mm/dd/yyyy"> -->
+<!--                                             <input type="text" class="form-control dpd1" name="from"> -->
+<!--                                             <span class="input-group-addon">至</span> -->
+<!--                                             <input type="text" class="form-control dpd2" name="to"> -->
+<!--                                         </div> -->
+                                        <input id="daterangepick" type="text" />
                                     </div>
                                     <br/>
                                     <div>
@@ -432,9 +431,7 @@
 <%--         <%@ include file="../common/footer.jsp" %> --%>
         <!--footer section end-->
 
-
     </div>
-    
     
     <!-- main content end-->
 </section>
@@ -443,17 +440,11 @@
 
 <!-- Placed js at the end of the document so the pages load faster -->
 
-<!--dynamic table-->
-		
 <!-- 页面初始化就需要加载 -->		
 	<script src="${path }/resources/scripts/scripts.js"></script>
+	<script data-main="${path}/resources/scripts/weekReport" src="${path}/resources/scripts/library/require.js"></script>
 	
-	<script src="${path}/resources/scripts/library/bootstrap-datepicker.js"></script>
-    <script src="${path}/resources/scripts/library/moment.min.js"></script>
-    <script src="${path}/resources/scripts/library/daterangepicker.js"></script>
-    
-    <script src="${path}/resources/scripts/library/pickers-init.js"></script>
-	
+ 
 </body>
 </html>
     

@@ -9,34 +9,6 @@
 
   <link href="${path}/resources/static/css/library/ej/ej.widgets.core.min.css" rel="stylesheet">
   <link href="${path}/resources/static/css/library/ej/ej.theme.hust.min.css" rel="stylesheet">
-  
-  
-<%--   <script src="${path}/resources/scripts/ej/common/ej.core.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/common/ej.data.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/common/ej.globalize.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/common/ej.scroller.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/common/ej.touch.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/common/ej.draggable.min.js"></script> --%>
-  
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.grid.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.pager.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.autocomplete.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.button.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.checkbox.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.datepicker.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.datetimepicker.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.dialog.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.dropdownlist.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.editor.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.excelfilter.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.menu.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.radiobutton.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.toolbar.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.tooltip.min.js"></script> --%>
-<%--   <script src="${path}/resources/scripts/ej/grid/ej.waitingpopup.min.js"></script> --%>
-  
-
-  
 
 </head>
 
@@ -140,7 +112,32 @@
 <!-- Placed js at the end of the document so the pages load faster -->
 <script src="${path }/resources/scripts/scripts.js"></script>
 <script src="${path}/resources/scripts/library/jsrender.min.js"></script>
-<script src="${path}/resources/scripts/ej/ej.web.all.min.js"></script>
+
+  <script src="${path}/resources/scripts/ej/common/ej.core.min.js"></script>
+  <script src="${path}/resources/scripts/ej/common/ej.data.min.js"></script>
+  <script src="${path}/resources/scripts/ej/common/ej.globalize.min.js"></script>
+  <script src="${path}/resources/scripts/ej/common/ej.scroller.min.js"></script>
+  <script src="${path}/resources/scripts/ej/common/ej.touch.min.js"></script>
+  <script src="${path}/resources/scripts/ej/common/ej.draggable.min.js"></script>
+  
+  <script src="${path}/resources/scripts/ej/web/ej.grid.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.pager.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.autocomplete.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.button.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.checkbox.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.datepicker.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.datetimepicker.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.dialog.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.dropdownlist.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.editor.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.excelfilter.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.menu.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.radiobutton.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.toolbar.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.tooltip.min.js"></script>
+  <script src="${path}/resources/scripts/ej/web/ej.waitingpopup.min.js"></script>
+
+
 <script src="${path}/resources/scripts/ej/ej.culture.zh-CN.min.js"></script>
 <script src="${path}/resources/scripts/ej/ej.localetexts.zh-CN.min.js"></script>
 <script src="${path }/resources/scripts/user.js"></script>

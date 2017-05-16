@@ -79,8 +79,9 @@
     //...
     ]
     }];
+    
+    $( function () {
 
-        $(function () {
             $("#gantt").ejGantt({
                 dataSource: projectData,
                 locale: "zh-CN",
