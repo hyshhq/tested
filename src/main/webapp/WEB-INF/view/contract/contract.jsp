@@ -35,9 +35,9 @@
             </h3>
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">合同管理</a>
+                    <a style="cursor: hand">合同管理</a>
                 </li>
-                <li class="active">合同总览</li>
+                <li class="active" id="left_location">合同总览</li>
             </ul>            
         </div>
         <!-- page heading end-->

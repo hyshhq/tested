@@ -48,7 +48,6 @@
                 <li class="menu-list"><a style="cursor:hand"><i class="fa fa-gear (alias)"></i> <span>流程管理</span></a>
                 	<ul class="sub-menu-list">
                 		<li class="submenu"><a href="${path}/progress">进度管理</a></li>
-                		<li class="submenu"><a href="${path}/weekReport">周报管理</a></li>
                 	</ul>
                 </li>
                 

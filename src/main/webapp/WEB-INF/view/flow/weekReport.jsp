@@ -33,7 +33,7 @@
             </h3>
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">进度管理</a>
+                    <a style="cursor: hand" id="left_location">进度管理</a>
                 </li>
                 <li class="active">进度报告</li>
             </ul>            

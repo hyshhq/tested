@@ -34,7 +34,7 @@
             </h3>
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">项目总览</a>
+                    <a href="#" id="left_location">项目总览</a>
                 </li>
                 <li class="active">项目概况</li>
             </ul>            

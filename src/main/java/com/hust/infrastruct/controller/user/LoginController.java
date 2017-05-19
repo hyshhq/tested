@@ -62,6 +62,13 @@ public class LoginController extends BaseController {
 		return "flow/progress";
 	}
 	
+	@RequestMapping(value = "/progressView")
+	public String goProgressView() {
+		log.info("\n\n /index ==> 跳转到progressView \n");
+		
+		return "flow/progressView";
+	}
+	
 	@RequestMapping(value = "/weekReport")
 	public String goWeekReport() {
 		log.info("\n\n /index ==> 跳转到weekReport \n");

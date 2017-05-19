@@ -41,7 +41,8 @@ window.onload = function(){
 				
 				//输入错误
 				error : function(id,result) {
-					$(id).attr("display" ,"inline-block").css("color","#ea1111");
+					$(id).css("color","#ea1111");
+					$(id).css("visibility", "visible");
 					//输入错误信息
 					$(id).hide().html('<i class="fa fa-exclamation fa-2x"  ></i>'+"<lable class='error' id='"+id+"1'>" + result + '</lable>').show(300);
 				},
@@ -49,7 +50,8 @@ window.onload = function(){
 				//输入正确
 				right : function(id) {
 					$(id).css("color", "#1ec32c");
-					$(id).hide().html('<i class="fa fa-check-circle fa-lg" ></i>').show(200);
+					$(id).css("visibility", "visible");
+					$(id).hide().html('<i class="fa fa-check-circle fa-lg"></i>').show(200);
 				}
 			},
 			
@@ -57,7 +59,8 @@ window.onload = function(){
 			submit : {
 				
 				error : function(id,result) {
-					$(id).attr("display" ,"inline-block").css("color","#ea1111");
+					$(id).css("color","#ea1111");
+					$(id).css("visibility", "visible");
 					//错误提示信息
 					$(id).hide().html('<i class="fa fa-exclamation fa-2x"  ></i>'+"<lable class='error' id='"+id+"2'>" + result + '</lable>').fadeIn(100).fadeOut(5000);
 				
@@ -123,6 +126,7 @@ window.onload = function(){
 		}else {
 			login.submit.error("#submitMessage"," 用户名密码不存在");
 		}
+		return false;
 	});
 	
 }

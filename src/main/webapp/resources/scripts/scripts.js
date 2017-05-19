@@ -15,15 +15,18 @@
 //    }
 
     jQuery(function(){  
+    	var left_location = $('#left_location')[0].innerText;
+    	
         $('.menu > a').each(function(){
-            if($($(this))[0].href==String(window.location)){  
+            if($($(this.lastChild))[0].innerText== left_location){  
                 $('.menu li').removeClass("active");  
                 $(this).parent().addClass('active');  
             }     
         });
         
         $('.submenu > a').each(function(){
-            if($($(this))[0].href==String(window.location)){  
+        	
+            if($($(this))[0].innerText==String(left_location)){  
                 $('.submenu li').removeClass("active");  
                 $(this).parent().addClass('active');
                 $(this).parent().parent().parent().addClass('nav-active');

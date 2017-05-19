@@ -11,7 +11,7 @@
 
 <body class="login-body">
 	<div class="container">	
-	    <form class="form-signin" method="post">
+	    <div class="form-signin">
 	        <div class="form-signin-heading text-center">
 	            <h1 class="sign-title">欢迎登陆</h1>
 	            <img src="${path}/resources/static/images/hust/hustlogom.png" alt=""/>
@@ -19,24 +19,25 @@
 	        </div>        
 	        <div class="login-wrap">
 	                
-	            <input id="userName" type="text" class="form-control" placeholder="用户名">
-				<div id="userNameMessage" style ="display: none"></div>
-	            <input id="passWord" type="password" class="form-control" placeholder="密码">
-				<div id="passWordMessage" style="display: none"></div>
+	            <input id="userName" type="text" class="form-control" placeholder="用户名" style="margin-bottom: 0px">
+				<div id="userNameMessage" style ="visibility: hidden;height: 30px"></div>
+	            <input id="passWord" type="password" class="form-control" placeholder="密码" style="margin-bottom: 0px;">
+				<div id="passWordMessage" style="visibility: hidden;"></div>
 				
 	            <button id="login-submit" class="btn btn-lg btn-login btn-block">
 	                <i class="fa fa-check"></i>
 	            </button>
-	            <div id="submitMessage" style="display: none"></div>
+	            <div id="submitMessage" style="visibility: hidden"></div>
 
 	            <label class="checkbox">
 	                <input id="remember" type="checkbox" value="remember-me"> 记住我
 	            </label>
 	        </div>
 		
-	    </form>	
+	    </div>	
 	</div>
 
+<script src="${path}/resources/scripts/library/jquery.cookie.min.js"></script>
 <script src="${path }/resources/scripts/login.js"></script>
 
 </body>
