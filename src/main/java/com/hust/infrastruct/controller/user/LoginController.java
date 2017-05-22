@@ -34,48 +34,6 @@ public class LoginController extends BaseController {
 	@Autowired
 	// private ProjectService projectService;
 
-	@RequestMapping(value = "/project")
-	public String goProject() {
-		log.info("\n\n /index ==> 跳转到project \n");
-		
-		return "project";
-	}
-	
-	@RequestMapping(value = "/contract")
-	public String goContract() {
-		log.info("\n\n /index ==> 跳转到contract \n");
-		
-		return "contract/contract";
-	}
-	
-	@RequestMapping(value = "/doc")
-	public String goDoc() {
-		log.info("\n\n /index ==> 跳转到doc \n");
-		
-		return "doc/doc";
-	}
-	
-	@RequestMapping(value = "/progress")
-	public String goProgress() {
-		log.info("\n\n /index ==> 跳转到progress \n");
-		
-		return "flow/progress";
-	}
-	
-	@RequestMapping(value = "/progressView")
-	public String goProgressView() {
-		log.info("\n\n /index ==> 跳转到progressView \n");
-		
-		return "flow/progressView";
-	}
-	
-	@RequestMapping(value = "/weekReport")
-	public String goWeekReport() {
-		log.info("\n\n /index ==> 跳转到weekReport \n");
-		
-		return "flow/weekReport";
-	}
-	
 	@RequestMapping(value = "/user")
 	public String goUser() {
 		log.info("\n\n /index ==> 跳转到user \n");

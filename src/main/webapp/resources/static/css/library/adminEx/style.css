@@ -898,16 +898,10 @@ h5.left-nav-title {
         MAIN CONTENT
 ------------------------------*/
 
-.main-content1 {
-    margin-left: 240px;
-    background: #eff0f4;
-    min-height: 1px;
-}
-
 .main-content {
     margin-left: 240px;
     background: #eff0f4;
-    min-height: 1px;    
+    min-height: 100%;    
 }
 
 .page-heading {
