@@ -20,7 +20,7 @@
     <!-- left side end-->
     
     <!-- main content start-->
-    <div class="main-content" style="overflow: auto;min-height: 100%">
+    <div class="main-content">
 
         <!-- header section start-->
         <%@ include file="../common/top.jsp" %>
@@ -33,7 +33,7 @@
             </h3>
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">进度管理</a>
+                    <a style="cursor: hand" id="left_location">进度管理</a>
                 </li>
                 <li class="active">进度报告</li>
             </ul>            
