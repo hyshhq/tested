@@ -22,8 +22,8 @@
     <script src="${path }/resources/scripts/library/jquery-ui-1.9.2.custom.min.js"></script>
 	<script src="${path }/resources/scripts/library/jquery-migrate-1.2.1.min.js"></script>
 	<script src="${path }/resources/scripts/library/modernizr.min.js"></script>
-<%--     <script src="${path }/resources/scripts/library/jquery.nicescroll.js"></script> --%>
 	<script src="${path }/resources/scripts/library/bootstrap.min.js"></script>
+	<script src="${path }/resources/scripts/library/jquery.nicescroll.js"></script>
 	
 	<!-- 
 	style.css

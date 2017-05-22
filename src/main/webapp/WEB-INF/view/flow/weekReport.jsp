@@ -20,7 +20,7 @@
     <!-- left side end-->
     
     <!-- main content start-->
-    <div class="main-content" style="overflow: auto;min-height: 100%">
+    <div class="main-content">
 
         <!-- header section start-->
         <%@ include file="../common/top.jsp" %>
